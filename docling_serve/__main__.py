@@ -75,7 +75,7 @@ def _run(
     *,
     command: str,
     # Docling serve parameters
-    artifacts_path: Path | None,
+    artifacts_path: Optional[Path],
     enable_ui: bool,
 ) -> None:
     server_type = "development" if command == "dev" else "production"
