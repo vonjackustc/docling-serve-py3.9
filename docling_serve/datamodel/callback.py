@@ -1,5 +1,5 @@
 import enum
-from typing import Annotated, Literal
+from typing import Annotated, Literal, Union
 
 from pydantic import BaseModel, Field
 
@@ -42,7 +42,7 @@ class ProgressUpdateProcessed(BaseProgress):
 class ProgressCallbackRequest(BaseModel):
     task_id: str
     progress: Annotated[
-        ProgressSetNumDocs | ProgressUpdateProcessed, Field(discriminator="kind")
+        Union[ProgressSetNumDocs, ProgressUpdateProcessed], Field(discriminator="kind")
     ]
 
 
